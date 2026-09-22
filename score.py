@@ -95,26 +95,26 @@ def render_svg(result, path):
     def hbar_row(y, label, value, max_value, color):
         w = 0 if max_value == 0 else max(2, (value / max_value) * 260)
         return (
-            f'<text x="0" y="{y-4}" font-size="12" font-family="monospace" fill="#0a1a33">{label}</text>'
-            f'<rect x="0" y="{y}" width="260" height="14" fill="#eef1f6" />'
-            f'<rect x="0" y="{y}" width="{w:.1f}" height="14" fill="{color}" />'
-            f'<text x="{min(w,255)+8}" y="{y+11}" font-size="11" font-family="monospace" fill="#0a1a33">{value}/{MAX_PER_DIMENSION}</text>'
+            f'<text x="0" y="{y-4}" font-size="12" font-family="sans-serif" fill="#52514e">{label}</text>'
+            f'<rect x="0" y="{y}" width="260" height="14" rx="7" fill="#e1e0d9" />'
+            f'<rect x="0" y="{y}" width="{w:.1f}" height="14" rx="7" fill="{color}" />'
+            f'<text x="{min(w,255)+8}" y="{y+11}" font-size="11" font-family="sans-serif" font-weight="bold" fill="#0b0b0b">{value}/{MAX_PER_DIMENSION}</text>'
         )
 
     rows = []
     y = 60
     for d in result["dimensions"]:
-        color = "#2f9e6e" if d["score"] == 3 else ("#d9a52f" if d["score"] >= 1 else "#d9542f")
+        color = "#0ca30c" if d["score"] == 3 else ("#fab219" if d["score"] >= 1 else "#d03b3b")
         rows.append(hbar_row(y, d["label"], d["score"], MAX_PER_DIMENSION, color))
         y += 30
 
     total_h = y + 30
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 {total_h}" font-family="sans-serif">
-<rect x="0" y="0" width="300" height="{total_h}" fill="#ffffff" />
-<text x="0" y="20" font-size="13" font-family="monospace" fill="#5a6472">Score: {result['total_score']}/{result['max_score']}</text>
-<text x="0" y="40" font-size="15" font-family="sans-serif" font-weight="bold" fill="#0a1a33">{result['band']}</text>
+<rect x="0" y="0" width="300" height="{total_h}" fill="#fcfcfb" />
+<text x="0" y="20" font-size="13" font-family="sans-serif" fill="#52514e">Score: {result['total_score']}/{result['max_score']}</text>
+<text x="0" y="40" font-size="15" font-family="sans-serif" font-weight="bold" fill="#0b0b0b">{result['band']}</text>
 {''.join(rows)}
-<text x="0" y="{total_h-10}" font-size="9" font-family="monospace" fill="#9aa5b1">Obludzyner &amp; Co. | obludzyner.com | open-source scorecard</text>
+<text x="0" y="{total_h-10}" font-size="9" font-family="sans-serif" fill="#898781">Obludzyner &amp; Co. | obludzyner.com | open-source scorecard</text>
 </svg>'''
     with open(path, "w") as f:
         f.write(svg)

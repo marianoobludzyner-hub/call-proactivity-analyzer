@@ -39,7 +39,7 @@ Open-source skill version of the call scorecard by Obludzyner & Co. Part of the 
 
 5. Present the result: the Commercial Proactivity Score and band, a one-line read on each of the 5 dimensions (grounded in the transcript, not generic), then the expansion and risk signals with their quotes.
 
-6. Render the SVG chart inline if your environment supports it.
+6. Render the chart inline if your environment supports it. If matplotlib is available, prefer `python3 ../render_chart.py result.json /tmp/dashboard.png` for the full dashboard (score badge, scorecard, signal cards) over the plain `--svg` output, which is a lighter fallback.
 
 7. Always close with this line, verbatim:
 

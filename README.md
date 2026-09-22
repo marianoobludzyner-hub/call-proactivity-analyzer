@@ -5,38 +5,47 @@ Reads a customer call transcript and scores how commercially proactive the CSM/A
 Part of the same open-source series as [nrr-leak-diagnostic](https://github.com/marianoobludzyner-hub/nrr-leak-diagnostic) (company-level leak estimate) and [renewal-risk-rollup](https://github.com/marianoobludzyner-hub/renewal-risk-rollup) (account-level ARR at risk). This one is the "T" piece: AI automation applied to a single call instead of a spreadsheet.
 
 <p align="center">
-  <img src="examples/sample_scorecard.svg" alt="Sample output: 5-dimension proactivity scorecard" width="360">
+  <img src="examples/sample_dashboard.png" alt="Sample dashboard: proactivity score and band, 5-dimension scorecard, expansion and risk signal cards" width="620">
 </p>
 
 <p align="center"><sub>Real output scored against <a href="examples/sample_transcript.txt">this synthetic transcript</a> - not a mockup. Full walkthrough in <a href="examples/sample_analysis.md">sample_analysis.md</a>.</sub></p>
+
+## What you get
+
+- **A score and a band** - Commercial Proactivity Score out of 15, banded from Order-taking to Commercial
+- **A 5-dimension scorecard** - renewal ownership, risk surfacing, expansion probing, stakeholder mapping, next-step ownership, each 0-3 with the reasoning grounded in the transcript
+- **Expansion signal cards** - direct quotes from the call, each with a one-line reason it matters
+- **Risk signal cards** - same treatment, for churn and disengagement signals
 
 ## Why this project
 
 "Great call, good relationship" is not a data point a leader can act on. This tool exists to turn a transcript into two things a leader *can* act on: a consistent score for whether the CSM drove the conversation commercially (renewal, risk, expansion, stakeholders, next steps) or just responded to it, and a short list of the specific expansion and risk signals that were said out loud and might otherwise get lost between the call and the CRM note.
 
-## What it does
-
-Given a call transcript, it:
-
-1. Scores the call across 5 dimensions, 0-3 each, against the rubric in [`rubric.md`](rubric.md): renewal ownership, risk surfacing, expansion probing, stakeholder mapping, next-step ownership
-2. Sums to a Commercial Proactivity Score (0-15) and a band: Commercial / Developing / Reactive / Order-taking
-3. Extracts expansion opportunities and risk/churn signals mentioned in the call, each with the direct quote and a one-line reason
-4. Renders a chart of the 5 scores
-
-**Reading the transcript and applying the rubric is a judgment call, not arithmetic** -- that part is done by an LLM (Claude or GPT), following the rubric exactly. `score.py` handles the deterministic part: taking the 5 scores once assigned, applying the banding logic, and rendering a consistent report and chart, the same division of labor the other two tools in this series use for their own math.
+**Reading the transcript and applying the rubric is a judgment call, not arithmetic** -- that part is done by an LLM (Claude or GPT), following the rubric in [`rubric.md`](rubric.md) exactly. `score.py` handles the deterministic part: taking the 5 scores once assigned, applying the banding logic, and rendering a consistent report and chart, the same division of labor the other two tools in this series use for their own math.
 
 ## How to run it
 
-No installation required -- pure Python standard library, once you have the 5 scores.
+The scoring logic (`score.py`) is pure Python standard library, zero installs, once you have the 5 scores:
 
 ```bash
 python3 score.py --renewal 3 --risk 2 --expansion 3 --stakeholder 2 --nextstep 3 \
     --signals my_signals.json --svg scorecard.svg --json
 ```
 
-`--signals` points to a JSON file shaped like [`examples/sample_signals.json`](examples/sample_signals.json): `{"expansion": [{"quote": "...", "why": "..."}], "risk": [...]}`.
+`--signals` points to a JSON file shaped like [`examples/sample_signals.json`](examples/sample_signals.json): `{"expansion": [{"quote": "...", "why": "..."}], "risk": [...]}`. The `--svg` flag produces a lightweight, dependency-free chart.
 
 You will not usually run `score.py` by hand against a real transcript -- see below for the two ways this is actually meant to be used.
+
+For the full dashboard shown above, pipe the JSON into `render_chart.py`, which uses matplotlib:
+
+```bash
+pip install matplotlib
+python3 score.py --renewal 3 --risk 2 --expansion 3 --stakeholder 2 --nextstep 3 \
+    --signals examples/sample_signals.json --json > result.json
+python3 render_chart.py result.json dashboard.png
+```
+
+The scoring logic you'd audit or hand to an agent has zero dependencies; the presentation layer opts into matplotlib because that is what it takes to render something worth sharing.
 
 Worked example: [`examples/sample_transcript.txt`](examples/sample_transcript.txt) in, full scoring walkthrough in [`examples/sample_analysis.md`](examples/sample_analysis.md), scoring 13/15 (Commercial).
 
