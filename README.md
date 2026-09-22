@@ -54,7 +54,7 @@ The full rubric, with the exact scoring anchors for every dimension, is in [`rub
 
 ## Where this fits in SHIFT
 
-This is "T": AI automation deployed at a real point in the post-sales motion, not a demo for its own sake. Proof it works at production scale: at **Onebeat**, AI-driven onboarding is what got 130+ clients to a 30-day time-to-value -- the same principle behind this tool, applied to calls instead of onboarding.
+This is "T": AI automation deployed at a real point in the post-sales motion, not a demo for its own sake. Proof it works at production scale: at **Onebeat**, built the Cloud CS department from zero, onboarding the first 20 clients hands-on. That foundation scaled to 130+ clients in under 10 months at a 30-day time-to-value, 105% NRR / 90% GRR -- the same principle behind this tool, applied to calls instead of onboarding.
 
 ## What this is not
 
