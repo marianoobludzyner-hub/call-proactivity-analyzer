@@ -4,6 +4,12 @@ Reads a customer call transcript and scores how commercially proactive the CSM/A
 
 Part of the same open-source series as [nrr-leak-diagnostic](https://github.com/marianoobludzyner-hub/nrr-leak-diagnostic) (company-level leak estimate) and [renewal-risk-rollup](https://github.com/marianoobludzyner-hub/renewal-risk-rollup) (account-level ARR at risk). This one is the "T" piece: AI automation applied to a single call instead of a spreadsheet.
 
+<p align="center">
+  <img src="examples/sample_scorecard.svg" alt="Sample output: 5-dimension proactivity scorecard" width="360">
+</p>
+
+<p align="center"><sub>Real output scored against <a href="examples/sample_transcript.txt">this synthetic transcript</a> - not a mockup. Full walkthrough in <a href="examples/sample_analysis.md">sample_analysis.md</a>.</sub></p>
+
 ## Why this project
 
 "Great call, good relationship" is not a data point a leader can act on. This tool exists to turn a transcript into two things a leader *can* act on: a consistent score for whether the CSM drove the conversation commercially (renewal, risk, expansion, stakeholders, next steps) or just responded to it, and a short list of the specific expansion and risk signals that were said out loud and might otherwise get lost between the call and the CRM note.
@@ -45,6 +51,10 @@ See [`gpt/CUSTOM_GPT_INSTRUCTIONS.md`](gpt/CUSTOM_GPT_INSTRUCTIONS.md) -- paste 
 ## Method
 
 The full rubric, with the exact scoring anchors for every dimension, is in [`rubric.md`](rubric.md) -- not hidden in a prompt, not a black box. It encodes one idea five ways: did the CSM drive the conversation forward, or only respond to it. That is the "F: from reactive to commercial" mindset shift at the center of the SHIFT Method, applied to one call instead of a whole team.
+
+## Where this fits in SHIFT
+
+This is "T": AI automation deployed at a real point in the post-sales motion, not a demo for its own sake. Proof it works at production scale: at **Onebeat**, AI-driven onboarding is what got 130+ clients to a 30-day time-to-value -- the same principle behind this tool, applied to calls instead of onboarding.
 
 ## What this is not
 
