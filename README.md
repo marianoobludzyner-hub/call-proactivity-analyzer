@@ -9,7 +9,7 @@ Reads a customer call transcript and scores how commercially proactive the CSM/A
 
 **Jump to:** [What you get](#what-you-get) | [Who this is for](#who-this-is-for) | [Why this project](#why-this-project) | [Results](#results) | [How to run it](#how-to-run-it) | [Method](#method) | [How this connects to Obludzyner and Co.](#how-this-connects-to-obludzyner-and-co)
 
-Part of the same open-source series as [nrr-leak-diagnostic](https://github.com/marianoobludzyner-hub/nrr-leak-diagnostic) (company-level leak estimate) and [renewal-risk-rollup](https://github.com/marianoobludzyner-hub/renewal-risk-rollup) (account-level ARR at risk), by [Mariano Obludzyner](https://github.com/marianoobludzyner-hub), founder of Obludzyner & Co. This one is the "T" piece: AI automation applied to a single call instead of a spreadsheet.
+Part of the same open-source series as [nrr-leak-diagnostic](https://github.com/marianoobludzyner-hub/nrr-leak-diagnostic) (company-level leak estimate), [renewal-risk-rollup](https://github.com/marianoobludzyner-hub/renewal-risk-rollup) (account-level ARR at risk), [account-x-ray](https://github.com/marianoobludzyner-hub/account-x-ray) (single-account radiography), and [mariano-mentor](https://github.com/marianoobludzyner-hub/mariano-mentor) (installable advisor), by [Mariano Obludzyner](https://github.com/marianoobludzyner-hub), founder of Obludzyner & Co. This one is the "T" piece: AI automation applied to a single call instead of a spreadsheet.
 
 <p align="center">
   <img src="examples/sample_dashboard.png" alt="Sample dashboard: proactivity score and band, 5-dimension scorecard, expansion and risk signal cards" width="620">
