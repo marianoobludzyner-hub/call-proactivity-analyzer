@@ -1,0 +1,53 @@
+{
+  "dimensions": [
+    {
+      "key": "renewal",
+      "label": "Renewal ownership",
+      "score": 3,
+      "max": 3
+    },
+    {
+      "key": "risk",
+      "label": "Risk surfacing",
+      "score": 2,
+      "max": 3
+    },
+    {
+      "key": "expansion",
+      "label": "Expansion probing",
+      "score": 3,
+      "max": 3
+    },
+    {
+      "key": "stakeholder",
+      "label": "Stakeholder mapping",
+      "score": 2,
+      "max": 3
+    },
+    {
+      "key": "nextstep",
+      "label": "Next-step ownership",
+      "score": 3,
+      "max": 3
+    }
+  ],
+  "total_score": 13,
+  "max_score": 15,
+  "band": "Commercial",
+  "expansion_signals": [
+    {
+      "quote": "Are they going to be using our platform too, or is that still being figured out? / Still being figured out honestly, nobody's really owned that conversation yet.",
+      "why": "The recent acquisition means a second entity could onboard onto the platform, and no one at Northwind currently owns that decision internally -- an open door, not yet a commitment."
+    }
+  ],
+  "risk_signals": [
+    {
+      "quote": "Two of our regional managers who used the dashboards daily left the company. We haven't backfilled yet.",
+      "why": "Daily active users just left with no replacement yet; adoption will keep declining until the roles are backfilled and re-onboarded, which is not yet scheduled beyond \"probably next month.\""
+    },
+    {
+      "quote": "I think the CFO wants visibility on anything over six figures now, given the acquisition.",
+      "why": "A new approval layer has entered the renewal decision process post-acquisition. Not a red flag on its own, but the proposal and timeline need to account for it or the renewal could stall."
+    }
+  ]
+}

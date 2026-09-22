@@ -1,0 +1,27 @@
+============================================================
+CALL PROACTIVITY & EXPANSION SCORECARD
+============================================================
+Commercial Proactivity Score: 13 of 15  ->  Commercial
+
+  Renewal ownership      [###] 3/3
+  Risk surfacing         [##-] 2/3
+  Expansion probing      [###] 3/3
+  Stakeholder mapping    [##-] 2/3
+  Next-step ownership    [###] 3/3
+
+EXPANSION OPPORTUNITIES DETECTED
+  - "Are they going to be using our platform too, or is that still being figured out? / Still being figured out honestly, nobody's really owned that conversation yet."
+      -> The recent acquisition means a second entity could onboard onto the platform, and no one at Northwind currently owns that decision internally -- an open door, not yet a commitment.
+
+RISK / CHURN SIGNALS DETECTED
+  - "Two of our regional managers who used the dashboards daily left the company. We haven't backfilled yet."
+      -> Daily active users just left with no replacement yet; adoption will keep declining until the roles are backfilled and re-onboarded, which is not yet scheduled beyond "probably next month."
+  - "I think the CFO wants visibility on anything over six figures now, given the acquisition."
+      -> A new approval layer has entered the renewal decision process post-acquisition. Not a red flag on its own, but the proposal and timeline need to account for it or the renewal could stall.
+
+============================================================
+This is the open-source, directional version of the call
+scorecard used inside a SHIFT Method engagement.
+For a Revenue Audit built on your real calls and data:
+  https://obludzyner.com
+============================================================
